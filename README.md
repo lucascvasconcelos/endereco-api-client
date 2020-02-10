@@ -1,6 +1,6 @@
 # ApiEnderecoClient
 
-## Como roda o projeto?
+## Como rodar o projeto?
 
 ```
 Entre no diretorio onde está localizado o projeto angular e rode os seguintes comandos:
