@@ -1,0 +1,76 @@
+
+<div id="list-cliente">
+    <div class="container">
+    <h1>Cadastro de novos enderecos</h1>
+    <form method="post" #frm="ngForm" (ngSubmit)="cadastrar(frm)" >
+      <div class="form-group">
+        <div class="form-group">
+            <label class="form-label" >Cep</label>
+            <input class="form-control" placeholder="" [(ngModel)]="endereco.cep" required name="cep">    
+        </div>
+       
+        <div class="form-group">
+            <label class="form-label" >Rua</label>
+            <input class="form-control" placeholder="" [(ngModel)]="endereco.rua" required name="rua">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" >Numero</label>
+            <input class="form-control" placeholder="" [(ngModel)]="endereco.numero" required name="numero">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" >Cidade</label>
+            <input class="form-control" placeholder="" [(ngModel)]="endereco.cidade" required name="cidade">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" >Bairro</label>
+            <input class="form-control" placeholder="" [(ngModel)]="endereco.bairro" required name="bairro">
+        </div>
+        
+        <div class="form-group">
+            <label class="form-label" >Commplemento</label>
+            <input class="form-control" placeholder="" [(ngModel)]="endereco.commplemento"  name="commplemento">
+        </div>
+        
+      </div>
+      
+    
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="frm.invalid" >Salvar</button>
+    </form>
+    <h2>Listagem</h2>
+    <table class="table card-table table-vcenter text-nowrap datatable dataTable no-footer" id="DataTables_Table_0"
+      role="grid" aria-describedby="DataTables_Table_0_info">
+      <thead>
+        <tr role="row">
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+          aria-label="Invoice Subject: activate to sort column ascending" style="width: 171px;">Cep</th> 
+
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+            aria-label="Invoice Subject: activate to sort column ascending" style="width: 171px;">Rua</th> 
+            
+
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+          aria-label="Invoice Subject: activate to sort column ascending" style="width: 171px;">Cidade</th> 
+
+          <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1"
+            aria-label="Invoice Subject: activate to sort column ascending" style="width: 171px;">Bairro</th> 
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let endereco of enderecos"  role="row" class="odd">
+          <td>{{ endereco.cep }}</td>
+          <td>{{ endereco.rua }}</td>
+          <td>{{ endereco.cidade }}</td>
+
+          <td>{{ endereco.bairro }}</td>
+          <td class="text-right">
+            <button  type="button" class="btn btn-primary" (click)="atualizar(endereco)">Editar</button>
+            <button  type="button" class="btn btn-danger" (click)="deletar(endereco.id)">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
